@@ -1,0 +1,543 @@
+@charset "UTF-8";
+
+html {
+  font-size: 100%;
+  scroll-padding-top: 80px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Lora", "Shippori Mincho", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #52453a;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+}
+
+.ttl {
+  text-transform: uppercase;
+}
+
+/*=======================================================================
+  ヘッダー
+======================================================================== */
+
+header {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 90px;
+  z-index: 999;
+  border-bottom: 1px solid #52453a;
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+header #menu {
+  color: #fff;
+  font-size: 2.5em;
+  cursor: pointer;
+  position: relative;
+  z-index: 999;
+  display: none;
+  user-select: none;
+}
+
+.nav_wp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px 20px;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+}
+
+.nav_li {
+  display: flex;
+  gap: 1.5rem;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+.nav_li a {
+  transition: 0.5s;
+}
+
+.nav_li a:hover {
+  color: #a0bc94;
+}
+
+@media (max-width: 768px) {
+  header #menu {
+    display: inline-block;
+    color: #52453a;
+  }
+
+  .logo {
+    width: 170px;
+    height: auto;
+  }
+
+  nav {
+    position: fixed;
+    top: -100vh; /* 1画面分上に上がる */
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99;
+    transition: top 0.25s ease-out;
+  }
+
+  nav.active {
+    top: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    background: rgb(252, 244, 232);
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav_li {
+    gap: 2rem;
+  }
+}
+/*=======================================================================
+  ファーストビュー
+======================================================================== */
+
+.mv_section_pc {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Slickのコンテナ */
+.slideshow {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* スライドアイテム */
+.slide_item {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.slide1 {
+  background: url(../images/mv_1.jpg) center / cover;
+  object-fit: cover;
+  object-position: center;
+}
+
+.slide2 {
+  background: url(../images/mv_2.png) center / cover;
+  object-fit: cover;
+  object-position: center;
+}
+.slide3 {
+  background: url(../images/mv_3.jpg) center / cover;
+  object-fit: cover;
+}
+.slide4 {
+  background: url(../images/mv_4.jpg) center / cover;
+  object-fit: cover;
+  object-position: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.36);
+  z-index: 997;
+}
+.slick-slide {
+  z-index: 1 !important;
+}
+
+.slick-current {
+  z-index: 10 !important;
+}
+
+.mv_content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 998;
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  font-size: 2rem;
+  text-shadow: 1px 2px 2px #52453a;
+}
+
+@media (max-width: 768px) {
+  .mv_content {
+    font-size: 1.5rem;
+  }
+}
+
+/*=======================================================================
+  コンセプト
+======================================================================== */
+
+.concept_wrapper {
+  background: #a0bc94;
+  padding: 130px 0 140px;
+}
+
+.concept_ttl {
+  font-size: 4rem;
+}
+
+.concept_ttl,
+.concept_txt,
+.concept_catch {
+  color: #fff;
+}
+
+.concept_img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.concept_catch {
+  margin-top: 86px;
+  font-size: 2rem;
+}
+
+.concept_catch,
+.concept_txt {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.concept_txt {
+  margin-top: 2rem;
+}
+
+.concept_txt p {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  margin-bottom: 20px;
+  max-width: 736px;
+}
+
+@media (max-width: 768px) {
+  .concept_wrapper {
+    padding-bottom: 72px;
+  }
+
+  .concept_ttl {
+    font-size: 2rem;
+  }
+
+  source,
+  .concept_img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .concept_catch {
+    font-size: 1.5rem;
+    margin-top: 72px;
+  }
+
+  .concept_txt {
+    font-size: 0.9rem;
+  }
+}
+
+/*=======================================================================
+  メニュー
+======================================================================== */
+.menu_wrapper {
+  background: #fcf4e8;
+  padding: 130px 10px;
+}
+
+.menu_ttl {
+  font-size: 4rem;
+}
+
+.menu_atm_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4.5rem;
+  width: 100%;
+}
+
+.food_wrapper,
+.desert_wrapper {
+  margin-top: 7.5rem;
+}
+
+.menu_img {
+  flex: 0 1 50%;
+  min-width: 0;
+}
+
+.menu_img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.drink_li_wrapper,
+.food_li_wrapper,
+.desert_li_wrapper {
+  width: 42%;
+  flex: 0 0 auto;
+}
+
+.drink_ttl {
+  font-size: 1.9rem;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #52453a;
+}
+
+.menu_li {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #52453a;
+}
+
+.item {
+  font-weight: 600;
+}
+
+.food_li_wrapper {
+  order: -1;
+}
+
+@media (max-width: 768px) {
+  .menu_wrapper {
+    padding-bottom: 10rem;
+  }
+
+  .menu_ttl {
+    font-size: 2rem;
+  }
+
+  .menu_atm_wrapper {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .food_wrapper,
+  .desert_wrapper {
+    margin-top: 6.25rem;
+  }
+
+  .drink_li_wrapper,
+  .food_li_wrapper,
+  .desert_li_wrapper {
+    width: 100%;
+  }
+
+  .drink_ttl {
+    font-size: 1.5rem;
+  }
+
+  .menu_li {
+    font-size: 0.9rem;
+  }
+
+  .food_li_wrapper {
+    order: 0;
+  }
+}
+
+/*=======================================================================
+  アクセス
+======================================================================== */
+.access_wrapper {
+  background: #f2e5da url(../images/accessback_img.png) center / cover;
+  padding: 130px 10px;
+}
+
+.access_ttl {
+  font-size: 4rem;
+}
+
+iframe {
+  max-width: 100%;
+  margin-top: 4.5rem;
+}
+
+.info {
+  background: #fcf4e8;
+  max-width: 900px;
+  margin: 4.5rem auto 0;
+  padding-top: 24px;
+  padding-bottom: 33px;
+  border-radius: 10px;
+}
+
+.access_logo,
+.footer_logo {
+  text-align: center;
+}
+
+.cafe_name {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.cafe_name_kana {
+  font-size: 0.9rem;
+  letter-spacing: 0.09em;
+  line-height: 1rem;
+}
+
+.info_txt {
+  margin: 9px auto 0;
+}
+
+.info_tr {
+  text-align: center;
+  border-bottom: 1px dotted #52453a;
+  padding: 8px 18px;
+}
+
+.info_tr th,
+.info_tr td {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 500;
+}
+
+.info_tr th {
+  display: grid;
+  place-items: center;
+  width: 105px;
+  background-color: #52453a;
+  color: #fff;
+  border-radius: 10px;
+  padding: 9px 0;
+  margin: 7px 0 7px 18px;
+}
+.from {
+  letter-spacing: 1em;
+  text-indent: 1rem;
+}
+
+.close {
+  letter-spacing: 0.5em;
+  text-indent: 0.5em;
+}
+
+.info_tr td {
+  text-align: left;
+  padding: 1rem 18px 1rem 11.25rem;
+}
+
+@media (max-width: 768px) {
+  .access_ttl {
+    font-size: 2rem;
+  }
+
+  .info {
+    padding: 55px 20px;
+  }
+
+  .info_txt {
+    width: 100%;
+    margin-top: 18px;
+  }
+
+  .info_tr {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+  }
+
+  .info_tr th,
+  .info_tr td {
+    font-size: 0.9rem;
+  }
+
+  .info_tr th {
+    max-width: 80px;
+    padding: 5px 0;
+    text-align: left;
+    margin: 0;
+  }
+
+  .info_tr td {
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+/*=======================================================================
+  フッター
+======================================================================== */
+.footer_wrapper {
+  background: #52453a;
+}
+
+.footer {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 10px;
+}
+
+.footer_logo {
+  width: 200px;
+  height: auto;
+}
+
+.copy_write_wrapper {
+}
+
+.copy_write {
+  color: #fff;
+}
+
+.note {
+  background: #fcf4e8;
+  padding: 1rem 0;
+}
+
+.note p {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .footer_logo {
+    width: 170px;
+    height: auto;
+  }
+}
